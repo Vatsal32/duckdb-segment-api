@@ -105,3 +105,4 @@ dist
 
 :memory
 :memory.wal
+.idea/
