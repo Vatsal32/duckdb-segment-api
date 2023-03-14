@@ -109,7 +109,6 @@ const parse: any = (data: d) => {
 export default {
     segment: async (req: Request, res: Response) => {
         const actualBody = req.body as d;
-        console.log(actualBody);
         db.all(`
             SELECT *
             FROM "user"
