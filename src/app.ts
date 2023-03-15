@@ -14,7 +14,7 @@ app.get("/", (req: Request, res: Response) => {
     res.json({message: "Hello World"});
 });
 
-app.use("/api/", SegmentRoutes);
+app.use("/api/segment/", SegmentRoutes);
 
 app.listen(PORT, () => {
     console.log(`[server]: 🚀 Server running at port: ${PORT}`);
