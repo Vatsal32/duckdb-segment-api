@@ -107,7 +107,7 @@ const parse: any = (data: d) => {
 
 
 export default {
-    segment: async (req: Request, res: Response) => {
+    segmentUser: async (req: Request, res: Response) => {
         const actualBody = req.body as d;
         db.all(`
             SELECT *
@@ -116,4 +116,8 @@ export default {
         `, dataListener);
         res.json({message: "success"});
     },
+    
+    segmentEvent: async (req: Request, res: Response) => {
+        res.json({message: "success"});
+    }
 };
