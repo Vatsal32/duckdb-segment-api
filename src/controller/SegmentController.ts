@@ -105,6 +105,10 @@ const parse: any = (data: d) => {
     }
 };
 
+const segEvents = (data) => {
+    return "";
+};
+
 
 export default {
     segmentUser: async (req: Request, res: Response) => {
@@ -118,6 +122,9 @@ export default {
     },
     
     segmentEvent: async (req: Request, res: Response) => {
+        const actualBody = req.body;
+
+
         res.json({message: "success"});
     }
 };
