@@ -105,7 +105,7 @@ const parse: any = (data: d) => {
     }
 };
 
-const segEvents = (data) => {
+const segEvents = (data: any) => {
     return "";
 };
 
