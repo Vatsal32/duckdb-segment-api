@@ -38,7 +38,6 @@ const parseUser: (data: UserSegment) => string = (data: UserSegment) => {
     }
 
     if (data.signup_date) {
-        console.log(data.signup_date);
         if (data.signup_date.to && data.signup_date.from) {
             if (!yyyy_mm_dd_Reg.test(data.signup_date.to) || !yyyy_mm_dd_Reg.test(data.signup_date.from)) {
                 throw new Error("Incorrect Date format");
@@ -148,6 +147,21 @@ const parseEvent: (data: EventSegment) => string = (data: EventSegment) => {
 
     if (data.user_id) {
         return `"user_id" in ( ${data.user_id.map((it) => it.toString())} )`;
+    }
+
+    if (data.timestamp) {
+        if (data.timestamp.to && data.timestamp.from) {
+            const validTo = new Date(data.timestamp.to);
+            const validFrom = new Date(data.timestamp.from);
+
+            if (!(validFrom.getTime() > 0) || !(validTo.getTime() > 0)) {
+                throw new Error("Incorrect Date format");
+            }
+
+            return `"timestamp" BETWEEN ${validFrom.getTime()} AND ${validTo.getTime()}`
+        } else {
+            throw Error("Need both to and from fields");
+        }
     }
 
     throw new Error(`No such field present as: ${Object.keys(data)}`);

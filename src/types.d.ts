@@ -27,7 +27,7 @@ enum event {
 }
 
 type UserSegment = {
-    age?: { to?: Number, from?: Number; };
+    age?: { to?: number, from?: number; };
     and?: UserSegment;
     device_type?: Array<device>;
     gender?: gender;
@@ -35,13 +35,13 @@ type UserSegment = {
     or?: UserSegment;
     signup_date?: { to?: string, from?: string};
     subscription_plan?: Array<subscription>;
-    user_id?: Array<Number>;
+    user_id?: Array<number>;
 };
 
 type EventSegment = {
     and?: EventSegment;
     event_name?: Array<string>;
     or?: EventSegment;
-    user_id?: Array<Number>;
-    timestamp?: {from: Number | string, to: Number | string};
+    user_id?: Array<number>;
+    timestamp?: {from: number | string, to: number | string};
 }

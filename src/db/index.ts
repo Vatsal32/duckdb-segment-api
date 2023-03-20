@@ -1,4 +1,4 @@
-import {Callback, Database, Statement, TableData} from "duckdb";
+import {Callback, Database, TableData} from "duckdb";
 
 const db = new Database(":memory");
 
